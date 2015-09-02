@@ -4,10 +4,12 @@ import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
 
-public class LockService extends Service {
-    public static final String TAG = "LockService";
+import java.util.ArrayList;
+import java.util.List;
 
-    private AttachActionDispatcher mDispatcher = new AttachActionDispatcher();
+public class LockService extends Service {
+
+    public static final String TAG = "LockService";
 
     public LockService() {
     }
@@ -24,7 +26,24 @@ public class LockService extends Service {
     }
 
     @Override
+    public void onDestroy() {
+        super.onDestroy();
+    }
+
+    @Override
     public IBinder onBind(Intent intent) {
         return null;
+    }
+
+    private void onAttach(Class<? extends ViewManager> viewManager){
+
+    }
+
+    private void onDetach(Class<? extends ViewManager> viewManager){
+
+    }
+
+    public void onEvent(ActionEvent event) {
+
     }
 }
